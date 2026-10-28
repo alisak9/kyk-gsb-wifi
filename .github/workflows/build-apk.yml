@@ -26,17 +26,23 @@ jobs:
           flutter-version: '3.24.3'
           channel: 'stable'
 
-      - name: Complete Project Scaffolding
+      - name: Auto-locate and Organize Files
         run: |
-          flutter create --platforms=android .
+          for f in *.zip; do
+            [ -e "$f" ] && unzip -o "$f" || true
+          done
+          if [ -d "kyk_gsb_wifi_app" ]; then
+            cp -r kyk_gsb_wifi_app/* . || true
+          fi
+          flutter create --project-name kyk_gsb_wifi_app --platforms=android .
           flutter pub get
 
       - name: Build APK (Release)
-        run: flutter build apk --release
+        run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: GSB_WiFi_Uygulamasi_APK
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: "**/app-release.apk"
           if-no-files-found: error
