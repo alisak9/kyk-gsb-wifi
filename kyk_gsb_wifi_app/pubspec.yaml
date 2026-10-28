@@ -1,0 +1,34 @@
+name: kyk_gsb_wifi_app
+description: "KYK Yurtları GSB WiFi Otomatik ve Hızlı Bağlantı Uygulaması (iOS & Android)"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Ağ ve Bağlantı Yönetimi
+  http: ^1.2.2
+  connectivity_plus: ^6.0.5
+  network_info_plus: ^5.0.3
+  # Güvenli Depolama (Keychain & Android Keystore)
+  flutter_secure_storage: ^9.2.2
+  shared_preferences: ^2.3.2
+  # Gömülü Web Girişi & JavaScript Enjeksiyonu
+  flutter_inappwebview: ^6.0.0
+  # Durum Yönetimi
+  provider: ^6.1.2
+  # Yardımcı Arayüz Bileşenleri
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.0
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
